@@ -58,8 +58,7 @@ class TestFaqElement {
     void testIndexBackrefMapping() {
         PersistentClass faqSection = config.getClassMapping("TestFaqSection")
         PersistentClass faqElement = config.getClassMapping("TestFaqElement")
-        IndexBackref elementsIndexBackref = faqElement.getProperty("_elementsIndexBackref")
-
+	IndexBackref elementsIndexBackref = faqElement.getProperty("_TestFaqSection_elementsIndexBackref")
         assertTrue elementsIndexBackref.isBackRef()
         assertFalse elementsIndexBackref.isBasicPropertyAccessor()
         assertFalse elementsIndexBackref.isComposite()
@@ -77,7 +76,7 @@ class TestFaqElement {
         assertEquals 1, elementsIndexBackref.getColumnSpan()
         assertEquals "TestFaqSection",  elementsIndexBackref.getEntityName()
         assertEquals PropertyGeneration.NEVER, elementsIndexBackref.getGeneration()
-        assertEquals "_elementsIndexBackref", elementsIndexBackref.getName()
+        assertEquals "_TestFaqSection_elementsIndexBackref", elementsIndexBackref.getName()
         assertNull elementsIndexBackref.getNodeName()
         assertNull elementsIndexBackref.getPropertyAccessorName()
         assertEquals IntegerType, elementsIndexBackref.getType().getClass()

@@ -459,7 +459,7 @@ public final class GrailsDomainBinder {
 
             if ((!list.getKey().isNullable() && !list.isInverse()) || compositeIdProperty) {
                 IndexBackref ib = new IndexBackref();
-                ib.setName(UNDERSCORE + property.getName() + "IndexBackref");
+		 ib.setName(UNDERSCORE + list.getOwner().getEntityName() + UNDERSCORE + property.getName() + "IndexBackref");                
                 ib.setUpdateable(false);
                 ib.setSelectable(false);
                 if (isManyToMany) {
